@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Only</title>
+    <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-white text-2xl font-bold">Members Only</a>
+            <div>
+                <% if (user) { %>
+                    <a href="/messages/create" class="text-white mr-4">Create Message</a>
+                    <% if (!user.is_member) { %>
+                        <a href="/join-club" class="text-white mr-4">Join Club</a>
+                    <% } %>
+                    <a href="/logout" class="text-white">Logout</a>
+                <% } else { %>
+                    <a href="/login" class="text-white mr-4">Login</a>
+                    <a href="/signup" class="text-white">Sign Up</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto mt-8 px-4">
